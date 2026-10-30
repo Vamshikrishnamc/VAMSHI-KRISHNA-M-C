@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  --bg-obsidian: #0e1321;
+  --surface-lowest: #090e1c;
+  --surface-low: #111827;
+  --surface-container: #161b2a;
+  --surface-high: #1e2638;
+  --surface-highest: #2b3347;
+  --cyan-primary: #00e5ff;
+  --cyan-glow: rgba(0, 229, 255, 0.4);
+  --blue-secondary: #3b82f6;
+  --violet-tertiary: #8b5cf6;
+}
+
+body {
+  background-color: #0e1321;
+  color: #dee2f6;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+code, kbd, samp, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Kinetic Obsidian Grid & Ambient Glows */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(0, 229, 255, 0.12) 1px, transparent 1px);
+}
+
+/* Glassmorphism Surface classes */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-elevated {
+  background: rgba(26, 31, 46, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  box-shadow: 0 0 25px -5px rgba(0, 229, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.cyan-glow {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+}
+
+.cyan-glow-sm {
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
+}
+
+.violet-glow {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090e1c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00e5ff;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px #10b981);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px #10b981);
+  }
+}
+
+.status-pulsing {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes terminalBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: terminalBlink 1s infinite;
+}
